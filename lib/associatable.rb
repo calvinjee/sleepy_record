@@ -1,5 +1,6 @@
-require_relative 'searchable'
+require_relative 'db_connection'
 require 'active_support/inflector'
+
 
 class AssocOptions
   attr_accessor(
@@ -79,17 +80,16 @@ module Associatable
     end
   end
 
-  def has_one_through(name, through_name, source_name)
+  def has_one_through(name, through:, source:)
     define_method(name) do
-
-      through_options = self.class.assoc_options[through_name]
-      source_options = through_options.model_class.assoc_options[source_name]
+      through_options = self.class.assoc_options[through]
+      source_options = through_options.model_class.assoc_options[source]
       foreign_key_val = self.send(through_options.foreign_key)
 
       through_table_name = through_options.table_name
       source_table_name = source_options.table_name
 
-      results = DBConnection.execute(<<-SQL, foreign_key_val)
+      results = SleepyRecord::DBConnection.execute(<<-SQL, foreign_key_val)
         SELECT #{source_table_name}.*
         FROM #{through_table_name}
         JOIN #{source_table_name}
@@ -101,8 +101,4 @@ module Associatable
     end
   end
 
-end
-
-class SQLObject
-  extend Associatable
 end

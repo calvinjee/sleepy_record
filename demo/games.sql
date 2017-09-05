@@ -37,5 +37,7 @@ INSERT INTO
 VALUES
   (1, "Master Sword", 1),
   (2, "Baseball Bat", 2),
-  (3, "Oculus", 3),
-  (4, "Buriza", 4);
+  (3, "Yo-Yo", 2),
+  (4, "Oculus", 3),
+  (5, "Buriza", 4),
+  (6, "ThunderFury", 4);
