@@ -4,18 +4,18 @@ Sleepy Record is a lightweight object-relational mapping modeled after Rails Act
 ## Demo
 1. Download or clone this repo and naviagate to `demo` directory.
 2. Open up `pry` or `irb` and execute `load 'demo.rb'` in the console.
-  * This will execute the `games.sql` file that creates the following tables and inserts some records into each:
-    + Games
-    + Characters
-    + Weapons
+    * This will execute the `games.sql` file that creates the following tables and inserts some records into each:
+      + Games
+      + Characters
+      + Weapons
 3. Try out some of the methods you see below. For example:
-  * `Game.all` will return an array of objects representing every record in the `Games` table.
-  * `Character.columns` will show all columns for the table.
-  * Create a new object with `Character.new` and pass in a hash to set its attributes where the key is the column name
-  * Invoke `save` on the object to either create a new entry in the database or update an existing one.
-  * Test out other commands such as `Weapon.first` or `Weapon.last`.
-  * Every `Character` `belongs_to` a game so try `Character.last.game`.
-  * A `Character` `has_many` weapons. Now try `Character.first.weapons`.
+    * `Game.all` will return an array of objects representing every record in the `Games` table.
+    * `Character.columns` will show all columns for the table.
+    * Create a new object with `Character.new` and pass in a hash to set its attributes where the key is the column name
+    * Invoke `save` on the object to either create a new entry in the database or update an existing one.
+    * Test out other commands such as `Weapon.first` or `Weapon.last`.
+    * Every `Character` `belongs_to` a game so try `Character.last.game`.
+    * A `Character` `has_many` weapons. Now try `Character.first.weapons`.
 4. For a more complete list of methods, see below.
 
 ## How to Create Associations
