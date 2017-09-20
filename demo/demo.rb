@@ -4,7 +4,7 @@ require_relative '../lib/db_connection'
 GAMES_SQL_FILE = 'games.sql'
 GAMES_DB_FILE = 'games.db'
 
-`rm '#{GAMES_DB_FILE}'`
+# `rm '#{GAMES_DB_FILE}'`
 `cat '#{GAMES_SQL_FILE}' | sqlite3 '#{GAMES_DB_FILE}'`
 
 SleepyRecord::DBConnection.open(GAMES_DB_FILE)
